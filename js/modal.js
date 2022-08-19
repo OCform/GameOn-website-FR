@@ -27,7 +27,7 @@ closeForm.addEventListener("click", downModal);
 
 // down modal form
 function downModal() {
-  modalbg.style.display = "block";
+  modalbg.style.display = "none";
   e.preventDefault();
 }
 
@@ -83,7 +83,6 @@ const checkLastname = () => {
     return valid;
 };
 
-
 const checkEmail = () => {
     let valid = false;
     const email = emailEl.value.trim();
@@ -132,7 +131,7 @@ const showSuccess = (input) => {
     error.textContent = '';
 }
 
-
+/*
 form.addEventListener('submit-btn', function validate(e) {
     // prevent the form from submitting
     e.preventDefault();
@@ -178,4 +177,4 @@ form.addEventListener('input', debounce(function (e) {
             break;
     }
 }));
-
+*/
