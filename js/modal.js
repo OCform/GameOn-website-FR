@@ -114,7 +114,7 @@ const showError = (input, message) => {
     formField.classList.add('error');
 
     // show the error message
-    const error = formField.querySelector('small');
+    const error = formField.querySelectorAll('small');
     error.textContent = message;
 };
 
@@ -127,11 +127,11 @@ const showSuccess = (input) => {
     formField.classList.add('success');
 
     // hide the error message
-    const error = formField.querySelector('small');
+    const error = formField.querySelectorAll('small');
     error.textContent = '';
 }
 
-/*
+
 form.addEventListener('submit-btn', function validate(e) {
     // prevent the form from submitting
     e.preventDefault();
@@ -177,4 +177,4 @@ form.addEventListener('input', debounce(function (e) {
             break;
     }
 }));
-*/
+
