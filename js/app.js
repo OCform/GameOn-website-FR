@@ -136,7 +136,9 @@ const showSuccess = (input, message) => {
         isConfirmPasswordValid;
 
     // submit to the server if the form is valid
-    if (isFormValid) {}
+    if (isFormValid) {
+        
+    }
 };
 
 
