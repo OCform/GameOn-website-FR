@@ -175,8 +175,8 @@ const checkQuantity = () => {
   let valid = false; 
   const q = quantityEl.value;
   
-  if (!isRequired(q)) {
-    showError(quantityEl, 'Nombre absent !');
+  if (!isRequired(q) || isNaN(q)) {
+    showError(quantityEl, 'Nombre absent ou invalide !');
     valid;
   } else {
     showSuccess(quantityEl, 'Quantity is valid.');
