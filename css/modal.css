@@ -91,7 +91,7 @@ img {
 }
 
 
-
+/*
  @media screen and (max-width: 540px) {
   .topnav a {display: none;}
   .topnav a.icon {
@@ -100,6 +100,7 @@ img {
     margin-top: -15px;
   }
 } 
+*/
 
 main {
   font-size: 130%;
@@ -406,7 +407,7 @@ input[data-error]::after {
   font-size: 16px;
 }
 .hero-section {
-  min-height: 93vh;
+  min-height: 20vh/*93vh*/;
   border-radius: 10px;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
@@ -421,11 +422,11 @@ input[data-error]::after {
   color: #fff;
   position: relative;
   text-align: left;
-  min-width: 424px;
+  min-width: 380px /*424px;*/;
 }
 .hero-content::after {
   content: "";
-  width: 100%;
+  width: 0%;
   height: 100%;
   background: #232323;
   position: absolute;

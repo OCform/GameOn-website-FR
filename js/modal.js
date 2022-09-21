@@ -136,10 +136,20 @@ function handleTabletChange375(e) {
     logo.style.padding = '0 16px'; 
     faBars.style.fontSize = '26px';
     faBars.style.color = "#FF0000";
-    faBars.style.textAlign = "center";
+    //faBars.style.textAlign = "center";
+    heroHeadline.style.display = 'flex';
+    heroHeadline.style.alignItems = 'flex-start';
+    heroHeadline.style.justifyContent = 'flex-start';
+    heroHeadline.style.flexWrap = 'wrap';
     heroHeadline.style.fontSize = '36px';
     heroContent.style.margin = '0 0 10px';
-    heroContent.style.padding = '0px';    
+    heroContent.style.padding = '0px';
+    
+    pHeroText.style.display = 'flex';
+    pHeroText.style.alignItems = 'flex-start';
+    pHeroText.style.justifyContent = 'flex-start';
+    pHeroText.style.flexWrap = 'wrap';
+
     pHeroText.style.fontSize = '14px';
     pHeroText.style.margin = '20px 5px';
     pHeroText.style.paddingRight = '100px';
@@ -228,7 +238,7 @@ const showError = (input, message) => {
   // hide the error message and show the error message
   const error = formField.querySelector('.message');
   const success = formField.querySelector('.message');
-  error.style.color = "pink";
+  error.style.color = "#ff4858";
   input.style.border = "4px solid #FF0000";
   error.style.fontSize = "14px";
   error.style.fontWeight = "100";
