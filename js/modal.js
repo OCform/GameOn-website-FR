@@ -1,5 +1,5 @@
 function editNav() {
-  var x = document.getElementById("myTopnav");
+  let x = document.getElementById("myTopnav");
   if (x.className === "topnav") {
     x.className += " responsive";
   } else {
@@ -24,7 +24,7 @@ const quantity = document.querySelector("#quantity");//
 const locationName = document.getElementsByName("location");
 const checkbox1 = document.querySelector("#checkbox1");//
 const checkbox2 = document.querySelector("#checkbox2");//
-const modalBody = document.querySelector(".modal-body");// 
+const modalBody = document.querySelector(".modal-body");//
 const content = document.querySelector(".content");//
 const btnSignup = document.querySelector("button.btn-signup");//
 const faBars = document.querySelector("#myTopnav a.icon .fa-bars");
@@ -51,6 +51,9 @@ function handleTabletChange992(e) {
   if (e.matches) {
     // Then log the following message to the console
     console.log('Media Query 992px Matched!');
+
+    content.style.marginTop = "0px";
+    modalbg.style.top = "120px";
 
     topNav.style.display = 'flex';
     topNav.style.alignItems = 'center';
@@ -83,27 +86,30 @@ mediaQuery992.addEventListener('change', handleTabletChange992);
 handleTabletChange992(mediaQuery992);
 
 // Create a condition that targets viewports at least 768px wide
-const mediaQuery768 = window.matchMedia('(min-width: 768px) and (max-width: 992px)');
+const mediaQuery768 = window.matchMedia('(max-width: 768px) and (min-width: 376px)');
 
 function handleTabletChange768(e) {
   // Check if the media query is true
   if (e.matches) {
     // Then log the following message to the console
-    console.log('Media Query 768px Matched!');  
+    console.log('Media Query 768px Matched!'); 
 
+    content.style.marginTop = "0px";
+    modalbg.style.top = "110px";
+    
     topNav.style.display = 'flex';
     topNav.style.alignItems = 'center';
     topNav.style.justifyContent = 'space-between';
     topNav.style.margin = '20px';
     logo.style.height = '70px'; 
     logo.style.padding = '16px'; 
-    faBars.style.fontSize = '30px';
+    faBars.style.fontSize = '40px';
     heroHeadline.style.fontSize = '60px';
     heroContent.style.margin = '0px';
     heroContent.style.padding = '40px';
     pHeroText.style.fontSize = '16px';
     pHeroText.style.margin = '20px 1px';
-    pHeroText.style.paddingRight = '100px';
+    pHeroText.style.paddingRight = '0px';
     heroImg.style.width = '100%';
     heroImg.style.height = '100%';
     heroImg.style.objectFit = 'cover';
@@ -126,22 +132,24 @@ function handleTabletChange375(e) {
   // Check if the media query is true
   if (e.matches) {
     // Then log the following message to the console
-    console.log('Media Query 375px Matched!'); 
-    
+    console.log('Media Query 375px Matched!');
+
+    content.style.marginTop = "0px";
+    modalbg.style.top = "70px"; 
+
     topNav.style.display = 'flex';
     topNav.style.alignItems = 'center';
     topNav.style.justifyContent = 'space-between';
-    topNav.style.margin = '20px';
+    topNav.style.margin = '10px';
     logo.style.height = '26px'; 
     logo.style.padding = '0 16px'; 
     faBars.style.fontSize = '26px';
     faBars.style.color = "#FF0000";
-    //faBars.style.textAlign = "center";
     heroHeadline.style.display = 'flex';
     heroHeadline.style.alignItems = 'flex-start';
     heroHeadline.style.justifyContent = 'flex-start';
     heroHeadline.style.flexWrap = 'wrap';
-    heroHeadline.style.fontSize = '36px';
+    heroHeadline.style.fontSize = '38px';
     heroContent.style.margin = '0 0 10px';
     heroContent.style.padding = '0px';
     
@@ -150,9 +158,10 @@ function handleTabletChange375(e) {
     pHeroText.style.justifyContent = 'flex-start';
     pHeroText.style.flexWrap = 'wrap';
 
+    pHeroText.style.minWidth = '375px';
     pHeroText.style.fontSize = '14px';
     pHeroText.style.margin = '20px 5px';
-    pHeroText.style.paddingRight = '100px';
+    pHeroText.style.paddingRight = '50px';
     heroImg.style.margin = '0px';
     pCopyrights.style.margin = '0px';            
   }
@@ -168,11 +177,10 @@ handleTabletChange375(mediaQuery375);
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 
 // launch modal form
-function launchModal() {  
-  modalbg.style.display = "block";
-  modalbg.style.backgroundColor = "transparent";
-  content.style.marginTop = "70px";
-  window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+function launchModal() {
+  modalbg.style.display = "block";  
+  modalbg.style.backgroundColor = "transparent";  
+  window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });  
 }
 
 // down modal event
@@ -199,8 +207,8 @@ faBars.style.color = "#FF0000";
 faBars.style.textAlign = "center";
 
 // add dynamically message div
-for (var i = 0; formData.length > i; i++) {//
-  var elDiv = document.createElement("div");//
+for (let i = 0; formData.length > i; i++) {//
+  let elDiv = document.createElement("div");//
   elDiv.classList.add("message");//
   formData[i].appendChild(elDiv);//    
 }
@@ -332,7 +340,9 @@ const checkBirthdate = () => {
   const dob = new Date(bDay);  
   let age = new Date().getFullYear() - dob.getFullYear();
   
-  if (!isRequired(dob) || 
+  if (!isRequired(dob.getDay()) || 
+      !isRequired(dob.getMonth()) ||
+      !isRequired(dob.getFullYear()) ||
       isNaN(dob.getDate()) ||
       dob.getFullYear()>new Date().getFullYear() || 
       dob.getFullYear()<1920) {
@@ -379,7 +389,7 @@ const checkLocation = () => {
     const location = document.querySelector(`#location${i+1}`);//
     if (getSelectedValue) {//
       valid = true;      
-      showSuccess(location, `Vous voulez participez au tournois de ${getSelectedValue.value}. `);
+      showSuccess(location, `Vous voulez participez au tournoi de ${getSelectedValue.value}. `);
     } else if (!getSelectedValue) showError(location, 'Vous devriez choisir une ville pour participer ! ');    
   } 
   return valid;
@@ -404,9 +414,8 @@ const checkBox = () => {
 
 // data validation
 form.addEventListener('submit', validate);
-function validate(event) {  
-  let valid = false;
-  
+function validate(event) {    
+  let valid = false;  
   // validate fields
   let isFirstNameValid = checkFirstName(),
       isLastNameValid = checkLastName(),
@@ -425,15 +434,21 @@ function validate(event) {
       isCheckBoxValid;
 
   // submit to the server if the form is valid
-  if (!isFormValid) {
-    event.preventDefault();
-  } else {
-    valid = true;
-    form.remove();
-    modalBody.style.textAlign = "center";
-    modalBody.style.margin = "0 auto";    
-    modalBody.innerHTML = 
-    "<br>"
+  if (isFormValid) {    
+    modalbg.style.textAlign = "center";
+    modalbg.style.margin = "0 auto";
+    modalbg.innerHTML = 
+    "<div class='content'>" 
+    +"<a href='../html/index.html' "
+    +"style = 'text-decoration: none; "                          
+    +"color: white'>"
+    +"<span class='close'> "   
+    +"</span>" 
+    +"</a>" 
+    +"<br>"
+    +"<br>"
+    +"<br>"
+    +"<br>"
     +"<br>"
     +"<br>"
     +"<br>"
@@ -443,25 +458,28 @@ function validate(event) {
     +"<br>"
     +"votre inscription"
     +"<br>"
+    +"<br>"
     +"<button "
     +"class='btn-signup modal-btn' "
+    +"type='submit' "
     +"style = 'margin: 0 auto; " 
     +"height: 40px; "                         
     +"margin-top: 210px; "
     +"margin-bottom: 10px; "
     +"padding: 0 40px'><a href='../html/index.html' "
     +"style = 'text-decoration: none; "                          
-    +"color: white'>Fermer</a></button>";  
+    +"color: white'>Fermer</a></button>"
+    +"<br>"
+    +"</div>"; 
     window.scrollTo({ 
       top: 0, 
       left: 0, 
-      bottom: 100, 
-      right: 100, 
       behavior: 'smooth' 
-    });
-  }
+    });    
+    valid = true;
+  } 
   return valid;
-};
+}
 
 const debounce = (fn, delay = 500) => {
   let timeoutId;
@@ -472,7 +490,7 @@ const debounce = (fn, delay = 500) => {
       }
       // setup a new timer
       timeoutId = setTimeout(() => {
-          fn.apply(null, args)
+          fn.apply(null, args);
       }, delay);
   };
 };
