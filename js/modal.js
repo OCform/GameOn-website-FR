@@ -200,6 +200,39 @@ function downModal() {//
   });//
 }
 
+// add all the elements inside modal which you want to make focusable
+const  focusableElements =
+    'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
+modalbg.id = 'modalBG';   
+const modal = document.querySelector('#modalBG'); // select the modal by it's id
+
+const firstFocusableElement = modal.querySelectorAll(focusableElements)[0]; // get first element to be focused inside modal
+const focusableContent = modal.querySelectorAll(focusableElements);
+const lastFocusableElement = focusableContent[focusableContent.length - 1]; // get last element to be focused inside modal
+
+
+document.addEventListener('keydown', function(e) {
+  let isTabPressed = e.key === 'Tab' || e.KeyboardEvent.key === 9;
+
+  if (!isTabPressed) {
+    return;
+  }
+
+  if (e.shiftKey) { // if shift key pressed for shift + tab combination
+    if (document.activeElement === firstFocusableElement) {
+      lastFocusableElement.focus(); // add focus for the last focusable element
+      e.preventDefault();
+    }
+  } else { // if tab key is pressed
+    if (document.activeElement === lastFocusableElement) { // if focused has reached to last focusable element then focus first focusable element after pressing tab
+      firstFocusableElement.focus(); // add focus for the first focusable element
+      e.preventDefault();
+    }
+  }
+});
+
+firstFocusableElement.focus();
+
 // main navbar properties
 faBars.style.paddingRight = "0px";
 faBars.style.marginRight = "0px";
@@ -240,8 +273,8 @@ const showError = (input, message) => {
   const formField = input.parentElement;
 
   // remove the success class and add the error class
-  formField.classList.remove('error');
-  formField.classList.add('success');
+  formField.classList.remove('success');
+  formField.classList.add('error');
 
   // hide the error message and show the error message
   const error = formField.querySelector('.message');
