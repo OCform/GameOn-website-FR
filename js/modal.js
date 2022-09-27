@@ -104,10 +104,10 @@ function handleTabletChange768(e) {
     logo.style.height = '70px'; 
     logo.style.padding = '16px'; 
     faBars.style.fontSize = '40px';
-    heroHeadline.style.fontSize = '60px';
+    heroHeadline.style.fontSize = '70px';
     heroContent.style.margin = '0px';
     heroContent.style.padding = '40px';
-    pHeroText.style.fontSize = '16px';
+    pHeroText.style.fontSize = '20px';
     pHeroText.style.margin = '20px 1px';
     pHeroText.style.paddingRight = '0px';
     heroImg.style.width = '100%';
@@ -126,7 +126,7 @@ mediaQuery768.addEventListener('change', handleTabletChange768);
 handleTabletChange768(mediaQuery768);
 
 // Create a condition that targets viewports at least 375px wide
-const mediaQuery375 = window.matchMedia('(max-width: 375px)');
+const mediaQuery375 = window.matchMedia('(max-width: 376px)');
 
 function handleTabletChange375(e) {  
   // Check if the media query is true
