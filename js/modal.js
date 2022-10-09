@@ -28,6 +28,7 @@ const modalBody = document.querySelector(".modal-body");//
 const content = document.querySelector(".content");//
 const btnSignup = document.querySelector("button.btn-signup");//
 const faBars = document.querySelector("#myTopnav a.icon .fa-bars");
+const aIcon = document.querySelector("#myTopnav a.icon");
 const logo = document.querySelector("#myTopnav .header-logo img");
 const topNav = document.querySelector("#myTopnav");
 const heroSection = document.querySelector(".hero-section");
@@ -104,6 +105,13 @@ function handleTabletChange768(e) {
     logo.style.height = '70px'; 
     logo.style.padding = '16px'; 
     faBars.style.fontSize = '40px';
+    faBars.style.borderRadius = '35%';
+    faBars.style.border = '2px solid transparent';
+    aIcon.style.margin = '0px';
+    aIcon.style.marginRight = '6px';
+    aIcon.style.marginLeft = '6px';
+    aIcon.style.marginTop = '6px';
+    aIcon.style.padding = '1px';
     heroHeadline.style.fontSize = '70px';
     heroContent.style.margin = '0px';
     heroContent.style.padding = '40px';
@@ -201,18 +209,16 @@ function downModal() {//
 }
 
 // add all the elements inside modal which you want to make focusable
-const  focusableElements =
-    'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
-modalbg.id = 'modalBG';   
-const modal = document.querySelector('#modalBG'); // select the modal by it's id
+const  focusableElements = 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"]), radio, check-box'; 
+
+const modal = document.querySelector('#reserve'); // select the modal by it's id
 
 const firstFocusableElement = modal.querySelectorAll(focusableElements)[0]; // get first element to be focused inside modal
 const focusableContent = modal.querySelectorAll(focusableElements);
 const lastFocusableElement = focusableContent[focusableContent.length - 1]; // get last element to be focused inside modal
 
-
 document.addEventListener('keydown', function(e) {
-  let isTabPressed = e.key === 'Tab' || e.KeyboardEvent.key === 9;
+  let isTabPressed = e.key === 'Tab' || e.code === 9;
 
   if (!isTabPressed) {
     return;
@@ -220,7 +226,7 @@ document.addEventListener('keydown', function(e) {
 
   if (e.shiftKey) { // if shift key pressed for shift + tab combination
     if (document.activeElement === firstFocusableElement) {
-      lastFocusableElement.focus(); // add focus for the last focusable element
+      lastFocusableElement.focus(); // add focus for the last focusable element      
       e.preventDefault();
     }
   } else { // if tab key is pressed
@@ -259,7 +265,7 @@ const showSuccess = (input, message) => {
   const error = formField.querySelector('.message');
   const success = formField.querySelector('.message');
   success.style.color = "#00FF00";
-  input.style.border = "4px solid #00FF00";
+  input.style.border = "4px solid #00FF00";  
   success.style.fontSize = "14px";
   success.style.fontWeight = "100";
   success.style.marginBottom = "10px";
