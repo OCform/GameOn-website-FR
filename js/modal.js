@@ -491,36 +491,37 @@ function validate(event) {
             <a href='../html/index.html'>Fermer</a>
           </button>
       </div>`;
-      const $content = document.querySelector('.content');
-      $content.style.height = '715px';
-      $content.style.maxWidth = '500px';
-      const $modalBody = document.querySelector('.modal-body');
-      $modalBody.style.display = 'flex';
-      $modalBody.style.flexDirection = 'column';
-      $modalBody.style.alignItems = 'center';
-      $modalBody.style.marginTop = '270px';
-      const $button = document.querySelector('.think');
-      $button.style.width = '200px';
-      $button.style.height = '40px';
-      $button.style.fontSize = '20px';
-      $button.style.marginTop = '230px';
-      $button.style.marginBottom = '20px';
-      $button.style.backgroundColor = '#F00';
-      $button.style.border = '#FFF';
-      $button.style.borderRadius = '10px';
-      const $buttonAnchor = document.querySelector('.think a');
-      $buttonAnchor.style.textDecoration = 'none';
-      $buttonAnchor.style.color = '#FFF';
-      // close the modal
-      const $close = document.querySelector('.close');
-      $close.addEventListener("click", () => {
-        modalbg.style.display = "none";
-      });
-      window.scrollTo({ 
+    const $content = document.querySelector('.content');
+    $content.style.height = '715px';
+    $content.style.maxWidth = '500px';
+    const $modalBody = document.querySelector('.modal-body');
+    $modalBody.style.display = 'flex';
+    $modalBody.style.flexDirection = 'column';
+    $modalBody.style.alignItems = 'center';
+    $modalBody.style.marginTop = '270px';
+    const $button = document.querySelector('.think');
+    $button.style.width = '200px';
+    $button.style.height = '40px';
+    $button.style.fontSize = '20px';
+    $button.style.marginTop = '230px';
+    $button.style.marginBottom = '20px';
+    $button.style.backgroundColor = '#F00';
+    $button.style.border = '#FFF';
+    $button.style.borderRadius = '10px';
+    const $buttonAnchor = document.querySelector('.think a');
+    $buttonAnchor.style.textDecoration = 'none';
+    $buttonAnchor.style.color = '#FFF';
+    // close the modal
+    const $close = document.querySelector('.close');
+    $close.addEventListener("click", () => {
+      modalbg.style.display = "none";
+    });
+    window.scrollTo({ 
       top: '-60px', 
       left: 0, 
       behavior: 'smooth' 
-    });    
+    });
+    
     valid = true;
   } 
   return valid;
