@@ -54,8 +54,9 @@ function handleTabletChange992(e) {
     console.log('Media Query 992px Matched!');
 
     content.style.marginTop = "0px";
+    modalbg.style.margin = "0 auto";
     modalbg.style.top = "0";
-    modalbg.style.marginTop = "110px";
+    
 
     topNav.style.display = 'flex';
     topNav.style.alignItems = 'center';
@@ -97,8 +98,8 @@ function handleTabletChange768(e) {
     console.log('Media Query 768px Matched!'); 
 
     content.style.marginTop = "0px";
-    modalbg.style.top = "0";
-    modalbg.style.marginTop = "110px";
+    modalbg.style.margin = "0 auto";
+    modalbg.style.top = "110px";   
     
     topNav.style.display = 'flex';
     topNav.style.alignItems = 'center';
@@ -146,7 +147,7 @@ function handleTabletChange375(e) {
 
     content.style.marginTop = "0px";
     modalbg.style.margin = "0 auto";
-    modalbg.style.marginTop = "55px";
+    modalbg.style.top = "60px";
 
     topNav.style.display = 'flex';
     topNav.style.alignItems = 'center';
@@ -156,6 +157,10 @@ function handleTabletChange375(e) {
     logo.style.padding = '0 16px'; 
     faBars.style.fontSize = '26px';
     faBars.style.color = "#FF0000";
+    aIcon.style.margin = '6px';
+    aIcon.style.marginRight = '6px';
+    aIcon.style.marginLeft = '6px';
+    aIcon.style.marginTop = '6px';
     heroHeadline.style.display = 'flex';
     heroHeadline.style.alignItems = 'flex-start';
     heroHeadline.style.justifyContent = 'flex-start';
@@ -191,7 +196,7 @@ modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 function launchModal() {
   modalbg.style.display = "block";  
   modalbg.style.backgroundColor = "transparent";  
-  window.scrollTo({ top:'-50px', left: 0, behavior: 'smooth' });  
+  window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });  
 }
 
 // down modal event
@@ -479,7 +484,7 @@ function validate(event) {
   if (isFormValid) {
     modalbg.style.textAlign = "center";
     modalbg.style.margin = "0 auto";
-    modalbg.style.marginTop = "50px";
+    modalbg.style.top = "50px";
     modalbg.innerHTML = 
       `<div class="content">
           <span class="close"></span>
@@ -487,7 +492,7 @@ function validate(event) {
               <p>Merci pour</p>
               <p>votre inscription</p>        
           </div>
-          <button class="think" type="button">
+          <button class="thank" type="button">
             <a href='../html/index.html'>Fermer</a>
           </button>
       </div>`;
@@ -499,7 +504,7 @@ function validate(event) {
     $modalBody.style.flexDirection = 'column';
     $modalBody.style.alignItems = 'center';
     $modalBody.style.marginTop = '270px';
-    const $button = document.querySelector('.think');
+    const $button = document.querySelector('.thank');
     $button.style.width = '200px';
     $button.style.height = '40px';
     $button.style.fontSize = '20px';
@@ -508,7 +513,7 @@ function validate(event) {
     $button.style.backgroundColor = '#F00';
     $button.style.border = '#FFF';
     $button.style.borderRadius = '10px';
-    const $buttonAnchor = document.querySelector('.think a');
+    const $buttonAnchor = document.querySelector('.thank a');
     $buttonAnchor.style.textDecoration = 'none';
     $buttonAnchor.style.color = '#FFF';
     // close the modal
@@ -517,7 +522,7 @@ function validate(event) {
       modalbg.style.display = "none";
     });
     window.scrollTo({ 
-      top: '-60px', 
+      top: 0, 
       left: 0, 
       behavior: 'smooth' 
     });
