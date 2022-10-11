@@ -54,7 +54,8 @@ function handleTabletChange992(e) {
     console.log('Media Query 992px Matched!');
 
     content.style.marginTop = "0px";
-    modalbg.style.top = "120px";
+    modalbg.style.top = "0";
+    modalbg.style.marginTop = "110px";
 
     topNav.style.display = 'flex';
     topNav.style.alignItems = 'center';
@@ -96,7 +97,8 @@ function handleTabletChange768(e) {
     console.log('Media Query 768px Matched!'); 
 
     content.style.marginTop = "0px";
-    modalbg.style.top = "110px";
+    modalbg.style.top = "0";
+    modalbg.style.marginTop = "110px";
     
     topNav.style.display = 'flex';
     topNav.style.alignItems = 'center';
@@ -143,13 +145,14 @@ function handleTabletChange375(e) {
     console.log('Media Query 375px Matched!');
 
     content.style.marginTop = "0px";
-    modalbg.style.top = "70px"; 
+    modalbg.style.margin = "0 auto";
+    modalbg.style.marginTop = "55px";
 
     topNav.style.display = 'flex';
     topNav.style.alignItems = 'center';
     topNav.style.justifyContent = 'space-between';
-    topNav.style.margin = '10px';
-    logo.style.height = '26px'; 
+    topNav.style.margin = '12px 10px';
+    logo.style.height = '28px'; 
     logo.style.padding = '0 16px'; 
     faBars.style.fontSize = '26px';
     faBars.style.color = "#FF0000";
@@ -159,7 +162,7 @@ function handleTabletChange375(e) {
     heroHeadline.style.flexWrap = 'wrap';
     heroHeadline.style.fontSize = '38px';
     heroContent.style.margin = '0 0 10px';
-    heroContent.style.padding = '0px';
+    heroContent.style.padding = '10px';
     
     pHeroText.style.display = 'flex';
     pHeroText.style.alignItems = 'flex-start';
@@ -188,7 +191,7 @@ modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 function launchModal() {
   modalbg.style.display = "block";  
   modalbg.style.backgroundColor = "transparent";  
-  window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });  
+  window.scrollTo({ top:'-50px', left: 0, behavior: 'smooth' });  
 }
 
 // down modal event
@@ -473,45 +476,48 @@ function validate(event) {
       isCheckBoxValid;
 
   // submit to the server if the form is valid
-  if (isFormValid) {    
+  if (isFormValid) {
     modalbg.style.textAlign = "center";
     modalbg.style.margin = "0 auto";
+    modalbg.style.marginTop = "50px";
     modalbg.innerHTML = 
-    "<div class='content'>" 
-    +"<a href='../html/index.html' "
-    +"style = 'text-decoration: none; "                          
-    +"color: white'>"
-    +"<span class='close'> "   
-    +"</span>" 
-    +"</a>" 
-    +"<br>"
-    +"<br>"
-    +"<br>"
-    +"<br>"
-    +"<br>"
-    +"<br>"
-    +"<br>"
-    +"<br>"
-    +"<br>"
-    +"Merci pour"
-    +"<br>"
-    +"votre inscription"
-    +"<br>"
-    +"<br>"
-    +"<button "
-    +"class='btn-signup modal-btn' "
-    +"type='submit' "
-    +"style = 'margin: 0 auto; " 
-    +"height: 40px; "                         
-    +"margin-top: 210px; "
-    +"margin-bottom: 10px; "
-    +"padding: 0 40px'><a href='../html/index.html' "
-    +"style = 'text-decoration: none; "                          
-    +"color: white'>Fermer</a></button>"
-    +"<br>"
-    +"</div>"; 
-    window.scrollTo({ 
-      top: 0, 
+      `<div class="content">
+          <span class="close"></span>
+          <div class="modal-body">
+              <p>Merci pour</p>
+              <p>votre inscription</p>        
+          </div>
+          <button class="think" type="button">
+            <a href='../html/index.html'>Fermer</a>
+          </button>
+      </div>`;
+      const $content = document.querySelector('.content');
+      $content.style.height = '715px';
+      $content.style.maxWidth = '500px';
+      const $modalBody = document.querySelector('.modal-body');
+      $modalBody.style.display = 'flex';
+      $modalBody.style.flexDirection = 'column';
+      $modalBody.style.alignItems = 'center';
+      $modalBody.style.marginTop = '270px';
+      const $button = document.querySelector('.think');
+      $button.style.width = '200px';
+      $button.style.height = '40px';
+      $button.style.fontSize = '20px';
+      $button.style.marginTop = '230px';
+      $button.style.marginBottom = '20px';
+      $button.style.backgroundColor = '#F00';
+      $button.style.border = '#FFF';
+      $button.style.borderRadius = '10px';
+      const $buttonAnchor = document.querySelector('.think a');
+      $buttonAnchor.style.textDecoration = 'none';
+      $buttonAnchor.style.color = '#FFF';
+      // close the modal
+      const $close = document.querySelector('.close');
+      $close.addEventListener("click", () => {
+        modalbg.style.display = "none";
+      });
+      window.scrollTo({ 
+      top: '-60px', 
       left: 0, 
       behavior: 'smooth' 
     });    
