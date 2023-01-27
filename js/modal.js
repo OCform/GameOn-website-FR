@@ -226,7 +226,7 @@ const focusableContent = modal.querySelectorAll(focusableElements);
 const lastFocusableElement = focusableContent[focusableContent.length - 1]; // get last element to be focused inside modal
 
 document.addEventListener('keydown', function(e) {
-  let isTabPressed = e.key === 'Tab' || e.code === 9;
+  let isTabPressed = e.key === 'Tab' || e.code === 'Tab';
 
   if (!isTabPressed) {
     return;
@@ -310,7 +310,7 @@ const isBetween = (length, min, max) => length < min || length > max ? false : t
 
 // check if a string has numbers
 const isNumber = (num) => {
-  const re = (/[0-9]+/gm);
+  const re = (/\d+/gm);
   return re.test(num);
 };
 
