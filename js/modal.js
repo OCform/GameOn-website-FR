@@ -444,7 +444,6 @@ const checkLocation = () => {
 
 const checkBox = () => {
   let valid = false;
-  const br = document.createElement('br');
   const checkBox1 = document.querySelector( 'input[id="checkbox1"]:checked');
   const checkBox2 = document.querySelector( 'input[id="checkbox2"]:checked');
   if (checkBox1 && checkBox2) {
